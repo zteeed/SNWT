@@ -11,14 +11,14 @@ ul>li {
   text-align: left;
 }
 
-span {
+span.image.fit {
     border: 1px solid #EAEAEA;
     display: block;
     margin: 8px;
     text-align: center;
 }
 
-span img {
+span.image.fit img {
     border: 1px solid #FFFFFF;
     margin: 0;
     background: #F6F6F6;
