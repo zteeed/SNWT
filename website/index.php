@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
     <link rel="icon" type="image/png" href="images/icon.png" />
   </head>
   <body class="is-preload">
@@ -31,8 +32,6 @@
               <h1>L'outil du <strong>Respo Web MiNET</strong>.</h1>
             </header>
             <p>
-            Rôle du Respo Web
-
             Le respo web est “responsable” du contenu hébergé par MiNET, que ce soit les associations ou les utilisateurs. Il faut donc vérifier qu'un contenu hébergé sur notre réseau ne soit pas en contradiction avec la loi (films/musiques protégées …)
 
             Dans l'absolu il faut:
@@ -41,7 +40,7 @@
               <li> Vérifier le contenu des sites web hébergés par Hosting.</li>
               <li> Vérifier le contenu des sites web auto hébergés par les adhérents.</li>
               <li> Vérifier le contenu des ftps anonymes ayant un port non filtré par kickass </li>
-            <ul>
+            </ul>
             </p>
             <a href="https://github.com/zteeed/SNWT/" class="button large scrolly">Contribution au projet &nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
           </div>

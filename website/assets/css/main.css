@@ -35,15 +35,6 @@ body {
 
 ol, ul {
   list-style: none;
-  margin-left: 5%;
-}
-
-p {
-  text-align: justify;
-}
-
-ul>li {
-  text-align: left;
 }
 
 blockquote, q {

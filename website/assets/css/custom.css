@@ -1,0 +1,12 @@
+ol, ul {
+  margin-left: 15%;
+}
+
+p {
+  text-align: justify;
+  margin-bottom: 1em;
+}
+
+ul>li {
+  text-align: left;
+}
