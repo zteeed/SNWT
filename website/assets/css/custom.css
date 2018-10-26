@@ -26,3 +26,7 @@ span img {
     -moz-box-shadow: 2px 2px 5px #CCCCCC;
     -webkit-box-shadow: 2px 2px 5px #CCCCCC;
 }
+
+.wrapper {
+  padding-top: 3em;
+}
