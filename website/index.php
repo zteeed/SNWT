@@ -1,9 +1,3 @@
-<!DOCTYPE HTML>
-<!--
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Miniport by HTML5 UP</title>
@@ -16,15 +10,15 @@
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="container">
-					<li><a href="#top">Top</a></li>
-					<li><a href="#work">Work</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="#adh">Adhérents</a></li>
+					<li><a href="#hosting">Hosting</a></li>
+					<li><a href="#dev">Dev</a></li>
+					<li><a href="#prod">Prod</a></li>
 				</ul>
 			</nav>
 
 		<!-- Home -->
-			<article id="top" class="wrapper style1">
+			<article id="adh" class="wrapper style1">
 				<div class="container">
 					<div class="row">
 						<div class="col-4 col-5-large col-12-medium">
@@ -42,7 +36,7 @@
 			</article>
 
 		<!-- Work -->
-			<article id="work" class="wrapper style2">
+			<article id="hosting" class="wrapper style2">
 				<div class="container">
 					<header>
 						<h2>Here's all the stuff I do.</h2>
@@ -79,7 +73,7 @@
 			</article>
 
 		<!-- Portfolio -->
-			<article id="portfolio" class="wrapper style3">
+			<article id="dev" class="wrapper style3">
 				<div class="container">
 					<header>
 						<h2>Here’s some stuff I made recently.</h2>
@@ -137,7 +131,7 @@
 			</article>
 
 		<!-- Contact -->
-			<article id="contact" class="wrapper style4">
+			<article id="prod" class="wrapper style4">
 				<div class="container medium">
 					<header>
 						<h2>Have me make stuff for you.</h2>
@@ -169,36 +163,12 @@
 							</form>
 						</div>
 						<div class="col-12">
-							<hr />
-							<h3>Find me on ...</h3>
 							<ul class="social">
-								<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
-								<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-								<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-								<!--
-								<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
-								<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
-								<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
-								<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
-								<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
-								<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
-								<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
-								<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
-								<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
-								-->
+								<li><a href="https://github.com/zteeed/SNWT" class="icon fa-github"><span class="label">Github</span></a></li>
 							</ul>
 							<hr />
 						</div>
 					</div>
-					<footer>
-						<ul id="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
 				</div>
 			</article>
 
