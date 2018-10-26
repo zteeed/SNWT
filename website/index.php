@@ -12,6 +12,7 @@
     <!-- Nav -->
     <nav id="nav">
       <ul class="container">
+        <li><a href="#info">Informations</a></li>
         <li><a href="#adh">Adhérents</a></li>
         <li><a href="#hosting">Hosting</a></li>
         <li><a href="#dev">Dev</a></li>
@@ -20,7 +21,7 @@
     </nav>
 
     <!-- Home -->
-    <article id="start" class="wrapper style1">
+    <article id="info" class="wrapper style1">
       <div class="container">
         <div class="row">
           <div class="col-8 col-7-large col-12-medium">
@@ -48,7 +49,7 @@
       </div>
     </article>
 
-    <article id="hosting" class="wrapper style2">
+    <article id="adh" class="wrapper style2">
       <div class="container">
         <header>
           <h2>Here's all the stuff I do.</h2>
