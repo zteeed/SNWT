@@ -23,10 +23,6 @@
     <article id="adh" class="wrapper style1">
       <div class="container">
         <div class="row">
-          <div class="col-4 col-5-large col-12-medium">
-            <span class="image fit"><img src="images/minet.png" alt="" /></span>
-            <span class="image fit"><img src="images/nmap.png" style="width: 70%" alt="" /></span>
-          </div>
           <div class="col-8 col-7-large col-12-medium">
             <header>
               <h1>L'outil du <strong>Respo Web MiNET</strong>.</h1>
@@ -43,6 +39,10 @@
             </ul>
             </p>
             <a href="https://github.com/zteeed/SNWT/" class="button large scrolly">Contribution au projet &nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+          </div>
+          <div class="col-4 col-5-large col-12-medium">
+            <span class="image fit"><img src="images/minet.png" alt="" /></span>
+            <span class="image fit"><img src="images/nmap.png" style="width: 50%" alt="" /></span>
           </div>
         </div>
       </div>
