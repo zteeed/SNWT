@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/icon.png" />
   </head>
   <body class="is-preload">
 
@@ -22,14 +23,27 @@
       <div class="container">
         <div class="row">
           <div class="col-4 col-5-large col-12-medium">
-            <span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
+            <style>img {padding: 25px}</style>
+            <span class="image fit"><img src="images/minet.png" alt="" /></span>
+            <span class="image fit"><img src="images/nmap.png" style="width: 70%" alt="" /></span>
           </div>
           <div class="col-8 col-7-large col-12-medium">
             <header>
-              <h1>Hi. I'm <strong>Jane Doe</strong>.</h1>
+              <h1>L'outil du <strong>Respo Web MiNET</strong>.</h1>
             </header>
             <p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license">CCA license</a>.</p>
-            <a href="#work" class="button large scrolly">Learn about what I do</a>
+            <p>
+            Rôle du Respo Web
+
+            Le respo web est “responsable” du contenu hébergé par MiNET, que ce soit les associations ou les utilisateurs. Il faut donc vérifier qu'un contenu hébergé sur notre réseau ne soit pas en contradiction avec la loi (films/musiques protégées …)
+
+            Dans l'absolu il faut:
+            - Vérifier le contenu des pages MiNET.
+            - Vérifier le contenu des sites web hébergés par Hosting.
+            - Vérifier le contenu des sites web auto hébergés par les adhérents.
+            - Vérifier le contenu des ftps anonymes ayant un port non filtré par kickass 
+            </p>
+            <a href="https://github.com/zteeed/SNWT/" class="button large scrolly">Contribution au projet &nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
