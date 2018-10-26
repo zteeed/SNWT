@@ -20,7 +20,7 @@
     </nav>
 
     <!-- Home -->
-    <article id="adh" class="wrapper style1">
+    <article id="start" class="wrapper style1">
       <div class="container">
         <div class="row">
           <div class="col-8 col-7-large col-12-medium">
@@ -42,13 +42,12 @@
           </div>
           <div class="col-4 col-5-large col-12-medium">
             <span class="image fit"><img src="images/minet.png" alt="" /></span>
-            <span class="image fit"><img src="images/nmap.png" style="width: 50%" alt="" /></span>
+            <span class="image fit"><img src="images/minet.png" alt="" /></span>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- Work -->
     <article id="hosting" class="wrapper style2">
       <div class="container">
         <header>
@@ -85,7 +84,42 @@
       </div>
     </article>
 
-    <!-- Portfolio -->
+    <article id="hosting" class="wrapper style2">
+      <div class="container">
+        <header>
+          <h2>Here's all the stuff I do.</h2>
+          <p>Odio turpis amet sed consequat eget posuere consequat.</p>
+        </header>
+        <div class="row aln-center">
+          <div class="col-4 col-6-medium col-12-small">
+            <section class="box style1">
+              <span class="icon featured fa-comments-o"></span>
+              <h3>Consequat lorem</h3>
+              <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+            </section>
+          </div>
+          <div class="col-4 col-6-medium col-12-small">
+            <section class="box style1">
+              <span class="icon featured fa-camera-retro"></span>
+              <h3>Lorem dolor tempus</h3>
+              <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+            </section>
+          </div>
+          <div class="col-4 col-6-medium col-12-small">
+            <section class="box style1">
+              <span class="icon featured fa-thumbs-o-up"></span>
+              <h3>Feugiat posuere</h3>
+              <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+            </section>
+          </div>
+        </div>
+        <footer>
+          <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+          <a href="#portfolio" class="button large scrolly">See some of my recent work</a>
+        </footer>
+      </div>
+    </article>
+
     <article id="dev" class="wrapper style3">
       <div class="container">
         <header>
@@ -143,7 +177,6 @@
       </div>
     </article>
 
-    <!-- Contact -->
     <article id="prod" class="wrapper style4">
       <div class="container medium">
         <header>
@@ -185,7 +218,6 @@
       </div>
     </article>
 
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
