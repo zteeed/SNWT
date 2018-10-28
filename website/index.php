@@ -32,7 +32,7 @@
             Le respo web est “responsable” du contenu hébergé par MiNET, que ce soit les associations ou les utilisateurs. Il faut donc vérifier qu'un contenu hébergé sur notre réseau ne soit pas en contradiction avec la loi (films/musiques protégées …)
 
             Dans l'absolu il faut:
-            <ul>
+            <ul class="ul-width-margin">
             <li> Vérifier le contenu des pages MiNET.</li>
               <li> Vérifier le contenu des sites web hébergés par Hosting.</li>
               <li> Vérifier le contenu des sites web auto hébergés par les adhérents.</li>

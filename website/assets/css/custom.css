@@ -1,4 +1,4 @@
-ol, ul {
+ul.ul-with-margin {
   margin-left: 15%;
 }
 
@@ -29,4 +29,9 @@ span.image.fit img {
 
 .wrapper {
   padding-top: 3em;
+}
+
+.box.style1 {
+  /* padding: 3em 2em 3.5em 2em; */
+  padding: 1em 1em 1em 1em; 
 }
