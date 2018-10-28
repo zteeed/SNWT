@@ -115,56 +115,9 @@
           <h2>Hosting</h2>
           <p>...</p>
         </header>
-        <?php $arr = get_hosting_info(); print_r($arr); ?>
+        <?php $arr = get_hosting_info() ?>
         <div class="row aln-center">
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
+          <?php display_data_hosting($arr) ?>
         </div>
       </div>
     </article>
