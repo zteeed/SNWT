@@ -28,7 +28,7 @@
             <header>
               <h1>L'outil du <strong>Respo Web MiNET</strong>.</h1>
             </header>
-            <p>
+            <p style="padding: 2em;">
             Le respo web est “responsable” du contenu hébergé par MiNET, que ce soit les associations ou les utilisateurs. Il faut donc vérifier qu'un contenu hébergé sur notre réseau ne soit pas en contradiction avec la loi (films/musiques protégées …)
 
             Dans l'absolu il faut:
@@ -79,8 +79,7 @@
           </div>
         </div>
         <footer>
-          <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-          <a href="#portfolio" class="button large scrolly">See some of my recent work</a>
+          <a href="#hosting" class="button large scrolly">See some of my recent work</a>
         </footer>
       </div>
     </article>
