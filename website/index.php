@@ -1,3 +1,4 @@
+<?php include('php_functions.php') ?>
 <html>
   <head>
     <title>Outil Respo Web</title>
@@ -114,6 +115,7 @@
           <h2>Hosting</h2>
           <p>...</p>
         </header>
+        <?php $arr = get_hosting_info() ?>
         <div class="row aln-center">
           <div class="col-3 col-4-medium col-6-small">
             <section class="box style1">
