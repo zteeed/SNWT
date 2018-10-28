@@ -139,6 +139,10 @@
         </header>
       </div>
     </article>
+  
+    <!--
+    Mattermost: http://192.168.102.82
+    -->
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
