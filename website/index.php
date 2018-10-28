@@ -54,7 +54,6 @@
       <div class="container">
         <header>
           <h2>Adhérents</h2>
-          <p>...</p>
         </header>
         <div class="row aln-center">
           <div class="col-3 col-4-medium col-6-small">
@@ -113,7 +112,6 @@
       <div class="container">
         <header>
           <h2>Hosting</h2>
-          <p>...</p>
         </header>
         <?php $arr = get_hosting_info() ?>
         <div class="row aln-center">
@@ -126,7 +124,6 @@
       <div class="container medium">
         <header>
           <h2>Dev</h2>
-          <p>...</p>
         </header>
       </div>
     </article>
@@ -135,7 +132,6 @@
       <div class="container medium">
         <header>
           <h2>Prod</h2>
-          <p>...</p>
         </header>
       </div>
     </article>
