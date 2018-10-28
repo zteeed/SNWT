@@ -5,6 +5,7 @@ ol, ul {
 p {
   text-align: justify;
   margin-bottom: 1em;
+  padding: 2em;
 }
 
 ul>li {
