@@ -1,9 +1,11 @@
 <?php
 
+/* Adhérents Functions */
+
 /* Hosting Functions */
 
 function get_hosting_info() {
-  include('database_conn.php');
+  include('database_conn_hosting.php');
   $query = "SELECT adherent_id, lxc_id, domaine_name, email 
             FROM lxc JOIN auth_user ON auth_user.id=lxc.adherent_id
             ORDER BY date_created DESC;";
