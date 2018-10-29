@@ -72,9 +72,33 @@ def create_database(username, db, password):
         print(exception)
     return
 
+def create_tables(username, db, password):
+    con = connect(username, db, password)
+    metadata = sqlalchemy.MetaData(bind=con, reflect=True)
+    print (metadata.tables)
+    table1 = Table('catégories', metadata, 
+		  Column('id', Integer, primary_key=True),
+		  Column('name', String))
+    table2 = Table('plages_ip', metadata,
+		  Column('id', Integer, primary_key=True),
+		  Column('id_catégories', Integer, ForeignKey("catégories.id"), nullable=False),
+		  Column('IP/mask', String))
+    table3 = Table('résultat_scan', metadata,
+		  Column('id', Integer, primary_key=True),
+		  Column('id_plages_ip', Integer, ForeignKey("plages_ip.id"), nullable=False),
+		  Column('IP', String),
+		  Column('nmap_csv', String))
+    try:
+        metadata.create_all()
+        for _t in metadata.tables: print("Table created: ", _t)
+    except Exception as exception:
+        print (exception)
+    return
+
 username = 'respoweb'
 password = 'MXlf55DdYmURrHDlcbnYXKiGg2O'
 db = 'nmap'
 create_user(username, password)
 grant_user(username)
 create_database(username, db, password)
+create_tables(username, db, password)
