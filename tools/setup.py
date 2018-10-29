@@ -45,6 +45,20 @@ def create_user(username, password):
         print ("Role {} already exists, keep going...".format(username))
     return
 
+def grant_user(username):
+    con = connect("postgres", "template1")
+    sql = 'ALTER USER {} WITH SUPERUSER CREATEDB CREATEROLE REPLICATION';
+    sql = sql.format(username)
+    try:
+        con.execute(sql)
+        print ("Role {} has been granted with SUPERUSER, CREATEDB AND REPLICATION attributes.".format(username))
+    except sqlalchemy.exc.OperationalError as exception:
+        print (exception)
+        sys.exit(0)
+    except sqlalchemy.exc.ProgrammingError as exception:
+        print (exception)
+        sys.exit(0)
+    return
 
 def create_database(username, db, password):
     con = connect(username, db, password)
@@ -66,5 +80,7 @@ def create_database(username, db, password):
 
 username = 'respoweb'
 password = 'MXlf55DdYmURrHDlcbnYXKiGg2O'
+db = 'nmap'
 create_user(username, password)
 grant_user(username)
+create_database(username, db, password)
