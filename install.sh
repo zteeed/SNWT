@@ -11,12 +11,17 @@ function ask_debian() {
 
 function move() {
   path=$1
-  rm -rf $path > /dev/null
-  sudo mkdir -p $path > /dev/null
-  cp -r {*,.git*} $path
-  echo
-  echo "Installation finished, you can go in $path"
-  exit 1
+  if [[ "$PWD/" =~ "$path" ]]; then
+    echo "You already are inside $path"
+    exit 1
+  else 
+    rm -rf $path > /dev/null
+    sudo mkdir -p $path > /dev/null
+    cp -r {*,.git*} $path
+    echo
+    echo "Installation finished, you can go in $path"
+    exit 1
+  fi
 }
 
 function install_debian_stretch() {
