@@ -62,12 +62,6 @@ def grant_user(username):
 
 def create_database(username, db, password):
     con = connect(username, db, password)
-    url = 'postgresql://{}:{}@{}:{}/{}'
-    url = url.format(username, password, "localhost", "5432", db)
-    print(url)
-    print(url)
-    print(url)
-    print(url)
     try:
         if not sqlalchemy_utils.database_exists(con.url):
             sqlalchemy_utils.create_database(con.url)
