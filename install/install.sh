@@ -1,7 +1,7 @@
 #! /bin/bash
 
 function ask_debian() {
-  read -p "This script has been tested on Debian stretch, keep going ? (y/N)" -r
+  read -p "This script has been tested on Debian stretch, keep going ? (y/N) " -r
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
     exit 1
   else
@@ -20,8 +20,17 @@ function move() {
     cp -r {*,.git*} $path
     echo
     echo "Installation finished, you can go in $path"
-    exit 1
+    read -p "Do you want ton make an automatic apache2 configuration ? (y/N) " -r
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
+      apache2_config
+    else
+      exit 1
+    fi
   fi
+}
+
+function apache2_config() {
+  exit 1
 }
 
 function install_debian_stretch() {
