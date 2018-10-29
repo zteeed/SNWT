@@ -46,7 +46,25 @@ def create_user(username, password):
     return
 
 
+def create_database(username, db, password):
+    con = connect(username, db, password)
+    url = 'postgresql://{}:{}@{}:{}/{}'
+    url = url.format(username, password, "localhost", "5432", db)
+    print(url)
+    print(url)
+    print(url)
+    print(url)
+    try:
+        if not sqlalchemy_utils.database_exists(con.url):
+            sqlalchemy_utils.create_database(con.url)
+            print ("Database {} has been successfully created".format(db))
+        else:
+            print("Database already exists, keep going...")
+    except Exception as exception:
+        print(exception)
+    return
 
 username = 'respoweb'
 password = 'MXlf55DdYmURrHDlcbnYXKiGg2O'
 create_user(username, password)
+grant_user(username)
