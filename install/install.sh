@@ -13,23 +13,32 @@ function move() {
   path=$1
   if [[ "$PWD/" =~ "$path" ]]; then
     echo "You already are inside $path"
-    exit 1
+    ask_apache2_config
   else 
     rm -rf $path > /dev/null
     sudo mkdir -p $path > /dev/null
     cp -r {*,.git*} $path
     echo
     echo "Installation finished, you can go in $path"
+    ask_apache2_config
+  fi
+}
+
+function ask_apache2_config() {
     read -p "Do you want ton make an automatic apache2 configuration ? (y/N) " -r
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
       apache2_config
     else
       exit 1
     fi
-  fi
 }
 
 function apache2_config() {
+  file="/etc/apache2/apache2.conf"
+  line="$(cat $file | awk '{print NR-1 ";" $0}' | awk '/<Directory \/var\/www/{flag=1;next}/<\/Directory/{flag=0}flag' | grep 'AllowOverride None' | cut -d';' -f1)"
+  echo "$line"
+  sed -i "$line""s|None|All|g" $file
+  sudo /etc/init.d/apache2 restart
   exit 1
 }
 
