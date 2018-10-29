@@ -7,7 +7,7 @@ import sqlalchemy
 from sqlalchemy import Table, Column, Integer, String, ForeignKey
 from sqlalchemy_utils import database_exists, create_database
 
-class SCAN():
+class Database():
 
     def __init__(self):
         self.nmap = nmap.PortScanner()
@@ -31,10 +31,6 @@ class SCAN():
         return
 
     def create_tables(self):
-        return
-
-class nmap_scan():
-    def x():
         return
 
 url = 'postgresql://{}@{}:{}/{}'
