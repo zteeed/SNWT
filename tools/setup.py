@@ -126,6 +126,9 @@ def push_categories(con, data):
     return
 
 def push_plages_ip(con, data):
+    sql = 'DELETE FROM {0}'
+    sql = sql.format('résultat_scan')
+    print(sql); con.execute(sql)
     sql = 'DELETE FROM {}'.format('plages_ip')
     print(sql); con.execute(sql)
     for line in data:
