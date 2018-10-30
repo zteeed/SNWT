@@ -112,8 +112,6 @@ def get_data_from_file(filename):
 
 def push_categories(con, data):
     catégories=set([line.split(';')[0] for line in data])
-    #{'test1', 'test2'}
-    '''Optinal delete all from table catégories'''
     sql = 'DELETE FROM {}'.format('catégories')
     print(sql); con.execute(sql)
     for catégorie in catégories:
