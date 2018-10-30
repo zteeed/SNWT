@@ -1,9 +1,7 @@
 #! /usr/bin/python3
 
-import os
 import re
 import sys
-import nmap
 import sqlalchemy
 from sqlalchemy import Table, Column, Integer, String, ForeignKey
 import sqlalchemy_utils
