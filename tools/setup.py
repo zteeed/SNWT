@@ -98,8 +98,11 @@ def create_tables(username, db, password):
 		  Column('id', Integer, primary_key=True),
 		  Column('id_plages_ip', Integer, ForeignKey('plages_ip.id'), nullable=False),
 		  #Column('id_plages_ip', Integer, nullable=False),
+		  #Column('nmap_csv', String),
 		  Column('ip', String),
-		  Column('nmap_csv', String))
+		  Column('port', String),
+		  Column('state', String),
+		  Column('name', String))
     try:
         metadata.create_all()
         for _t in metadata.tables: print('Table created: ', _t)
