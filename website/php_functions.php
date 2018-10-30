@@ -3,7 +3,7 @@
 /* Adhérents Functions */
 
 function get_adh_info() {
-  include('database_conn_localhost.php');
+  include('database/database_conn_localhost.php');
   return array();
 }
 
@@ -14,7 +14,7 @@ function display_data_adh($arr) {
 /* Hosting Functions */
 
 function get_hosting_info() {
-  include('database_conn_hosting.php');
+  include('database/database_conn_hosting.php');
   $query = "SELECT adherent_id, lxc_id, domaine_name, email 
             FROM lxc JOIN auth_user ON auth_user.id=lxc.adherent_id
             ORDER BY date_created DESC;";

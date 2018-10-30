@@ -1,2 +1,2 @@
-database_conn_hosting.php
-database_conn_localhost.php
+database/database_conn_hosting.php
+database/database_conn_localhost.php
