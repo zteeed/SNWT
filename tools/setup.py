@@ -15,7 +15,7 @@ def connect(user, db, password='', host='localhost', port=5432):
     else:
         url = 'postgresql://{}@/{}'
         url = url.format(user, db)
-    print("\nConnexion to: "+url)
+    print('\nConnexion to: '+url)
     try:
         con = sqlalchemy.create_engine(url, client_encoding='utf8')
         #meta = sqlalchemy.MetaData(bind=con, reflect=True)
@@ -25,31 +25,31 @@ def connect(user, db, password='', host='localhost', port=5432):
         m = re.search('\(psycopg2.OperationalError\) FATAL:  (.*?)$', exception)
         if m: 
             print(m.group(1))
-            print("You might need to edit pg_hba.conf file.")
-            print("Don't forget to restart postgresql service after.")
+            print('You might need to edit pg_hba.conf file.')
+            print('Don\'t forget to restart postgresql service after.')
         sys.exit(0)
 
 def create_user(username, password):
-    con = connect("postgres", "template1")
+    con = connect('postgres','template1')
     sql = 'CREATE USER {} WITH PASSWORD \'{}\''
     sql = sql.format(username, password)
     try:
         con.execute(sql)
-        print ("Role {} has been successfully created.".format(username))
+        print ('Role {} has been successfully created.'.format(username))
     except sqlalchemy.exc.OperationalError as exception:
         print (exception)
         sys.exit(0)
     except sqlalchemy.exc.ProgrammingError as exception:
-        print ("Role {} already exists, keep going...".format(username))
+        print ('Role {} already exists, keep going...'.format(username))
     return
 
 def grant_user(username):
-    con = connect("postgres", "template1")
+    con = connect('postgres', 'template1')
     sql = 'ALTER USER {} WITH SUPERUSER CREATEDB CREATEROLE REPLICATION';
     sql = sql.format(username)
     try:
         con.execute(sql)
-        print ("Role {} has been granted with SUPERUSER, CREATEDB AND REPLICATION attributes.".format(username))
+        print ('Role {} has been granted with SUPERUSER, CREATEDB AND REPLICATION attributes.'.format(username))
     except sqlalchemy.exc.OperationalError as exception:
         print (exception)
         sys.exit(0)
@@ -63,9 +63,9 @@ def create_database(username, db, password):
     try:
         if not sqlalchemy_utils.database_exists(con.url):
             sqlalchemy_utils.create_database(con.url)
-            print ("Database {} has been successfully created".format(db))
+            print ('Database {} has been successfully created'.format(db))
         else:
-            print("Database already exists, keep going...")
+            print('Database already exists, keep going...')
     except Exception as exception:
         print(exception)
     return
@@ -76,24 +76,24 @@ def create_tables(username, db, password):
     X = [ _t for _t in metadata.tables ].sort()
     Y = ['catégories', 'plages_ip', 'résultat_scan'].sort()
     if X==Y: 
-        print('Tables already created'); 
-        #for _t in metadata.tables: print("Table created: ", _t)
+        print('Tables already created, keep going...'); 
+        #for _t in metadata.tables: print('Table created: ', _t)
         return
     table1 = Table('catégories', metadata, 
 		  Column('id', Integer, primary_key=True),
 		  Column('name', String))
     table2 = Table('plages_ip', metadata,
 		  Column('id', Integer, primary_key=True),
-		  Column('id_catégories', Integer, ForeignKey("catégories.id"), nullable=False),
+		  Column('id_catégories', Integer, ForeignKey('catégories.id'), nullable=False),
 		  Column('IP/mask', String))
     table3 = Table('résultat_scan', metadata,
 		  Column('id', Integer, primary_key=True),
-		  Column('id_plages_ip', Integer, ForeignKey("plages_ip.id"), nullable=False),
+		  Column('id_plages_ip', Integer, ForeignKey('plages_ip.id'), nullable=False),
 		  Column('IP', String),
 		  Column('nmap_csv', String))
     try:
         metadata.create_all()
-        for _t in metadata.tables: print("Table created: ", _t)
+        for _t in metadata.tables: print('Table created: ', _t)
     except Exception as exception:
         print (exception)
     return
