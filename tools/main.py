@@ -1,12 +1,17 @@
 #! /usr/bin/python3
 
-from setup import Database as db
-from scanner import Scan as scan
+import setup
+import scan
 
 if __name__ == "__main__":
-    #db.create_role()
-    #db.create_database()
-    #db.create_tables()
-    #db.load_data_from(file)
+    ''' Specify custom data '''
+    username = 'respoweb'
+    password = 'MXlf55DdYmURrHDlcbnYXKiGg2O'
+    db = 'nmap'
+    ''' Setup config '''
+    setup.create_user(username, password)
+    setup.grant_user(username)
+    setup.create_database(username, db, password)
+    setup.create_tables(username, db, password)
+    ''' Scan push to db '''
     #scan_push_in db  
-    print ("start")

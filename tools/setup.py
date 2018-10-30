@@ -98,10 +98,3 @@ def create_tables(username, db, password):
         print (exception)
     return
 
-username = 'respoweb'
-password = 'MXlf55DdYmURrHDlcbnYXKiGg2O'
-db = 'nmap'
-create_user(username, password)
-grant_user(username)
-create_database(username, db, password)
-create_tables(username, db, password)
