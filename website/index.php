@@ -16,7 +16,9 @@
         <li><a href="#info">Informations</a></li>
         <li><a href="#adh">Adhérents</a></li>
         <li><a href="#hosting">Hosting</a></li>
+        <li><a href="#dev_rev">Dev Revproxy</a></li>
         <li><a href="#dev">Dev</a></li>
+        <li><a href="#prod_rev">Prod Revproxy</a></li>
         <li><a href="#prod">Prod</a></li>
       </ul>
     </nav>
@@ -74,6 +76,16 @@
       </div>
     </article>
 
+    <article id="dev_rev" class="wrapper style2">
+      <div class="container">
+        <header>
+          <h2>Dev Revproxy</h2>
+        </header>
+        <div class="row aln-center">
+        </div>
+      </div>
+    </article>
+
     <article id="dev" class="wrapper style2">
       <div class="container">
         <header>
@@ -82,6 +94,16 @@
         <?php $arr = get_scan_info('développement') ?>
         <div class="row aln-center">
           <?php display_data_scan($arr) ?>
+        </div>
+      </div>
+    </article>
+
+    <article id="prod_rev" class="wrapper style2">
+      <div class="container">
+        <header>
+          <h2>Prod Revproxy</h2>
+        </header>
+        <div class="row aln-center">
         </div>
       </div>
     </article>
