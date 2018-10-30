@@ -121,10 +121,15 @@ def push_categories(con, data):
     return
 
 def push_plages_ip(con, data):
-    plages=set([line.split(';')[1] for line in data])
-    print(plages)
-    print(plages)
-    print(plages)
+    sql = 'DELETE FROM {}'.format('plages_ip')
+    print(sql); con.execute(sql)
+    for line in data:
+        [catégorie, ip_mask, description] = line.split(';')
+        query_id = 'SELECT id from catégories WHERE name=\'{0}\'';
+        query_id = query_id.format(catégorie)
+        sql = 'INSERT INTO plages_ip (id_catégories, ip_mask, description) VALUES ( ({0}), \'{1}\', \'{2}\')';
+        sql = sql.format(query_id, ip_mask, description)
+        print(sql); con.execute(sql)
     return
 
 def push_data_from_file(username, db, password, filename):
