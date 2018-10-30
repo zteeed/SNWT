@@ -34,7 +34,7 @@ def create_user(username, password):
     sql = 'CREATE USER {} WITH PASSWORD \'{}\''
     sql = sql.format(username, password)
     try:
-        con.execute(sql)
+        print(sql); con.execute(sql)
         print ('Role {} has been successfully created.'.format(username))
     except sqlalchemy.exc.OperationalError as exception:
         print (exception)
@@ -48,7 +48,7 @@ def grant_user(username):
     sql = 'ALTER USER {} WITH SUPERUSER CREATEDB CREATEROLE REPLICATION';
     sql = sql.format(username)
     try:
-        con.execute(sql)
+        print(sql); con.execute(sql)
         print ('Role {} has been granted with SUPERUSER, CREATEDB AND REPLICATION attributes.'.format(username))
     except sqlalchemy.exc.OperationalError as exception:
         print (exception)
@@ -81,9 +81,9 @@ def create_tables(username, db, password):
         return
     else:
         sql='DROP SCHEMA public CASCADE;'
-        con.execute(sql)
+        print(sql); con.execute(sql)
         sql='CREATE SCHEMA public;'
-        con.execute(sql)
+        print(sql); con.execute(sql)
         metadata = sqlalchemy.MetaData(bind=con, reflect=True)
     table1 = Table('catégories', metadata, 
 		  Column('id', Integer, primary_key=True),
@@ -103,5 +103,31 @@ def create_tables(username, db, password):
         for _t in metadata.tables: print('Table created: ', _t)
     except Exception as exception:
         print (exception)
+    return
+
+def get_data_from_file(filename):
+    file = open(filename, 'r')
+    data = file.read().split('\n')[1:-1]
+    return data
+
+def push_categories(con, data):
+    catégories=set([line.split(';')[0] for line in data])
+    #{'test1', 'test2'}
+    '''Optinal delete all from table catégories'''
+    sql = 'DELETE FROM {}'.format('catégories')
+    print(sql); con.execute(sql)
+    for catégorie in catégories:
+        sql = 'INSERT INTO {0} (name) SELECT \'{1}\' WHERE NOT EXISTS (SELECT * FROM {0} WHERE name=\'{1}\')';
+        sql = sql.format('catégories', catégorie)
+        print(sql); con.execute(sql)
+    return
+
+def push_data_from_file(username, db, password, filename):
+    con = connect(username, db, password)
+    metadata = sqlalchemy.MetaData(bind=con, reflect=True)
+    '''get data from file'''
+    data = get_data_from_file(filename)
+    '''push data in first table'''
+    push_categories(con, data)
     return
 
