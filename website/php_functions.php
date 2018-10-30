@@ -1,6 +1,6 @@
 <?php
 
-/* Adhérents Functions */
+/* Adhérents/Développement/Production Functions */
 
 function get_scan_info($table) {
   include('database/database_conn_localhost.php');
@@ -19,7 +19,50 @@ function get_scan_info($table) {
 }
 
 function display_data_scan($arr) {
+  $arr = group_on_ip($arr);
+  foreach($arr as $host) {
+    $url = "http://".$host[0]["ip"];
+    $httpcode = 999;
+    foreach ($host as $port) {
+      if (intval($port["port"]) === 80) {
+        $httpcode = http_code($url);
+      }
+    }
+    echo '
+    <div class="col-3 col-4-medium col-12-small">
+      <section class="box style1">
+        <span class="icon featured '.icon_up_down($httpcode).'"></span>
+        <h3>'.$host[0]["ip"].'</h3>
+        <p></p>
+        <ul>
+	';
+        $num = count($host);
+        echo '<li>'.$num.' port(s) ouvert(s)</li>';
+	foreach ($host as $port) {
+          // echo "<li>Port:".$port["port"]."\r".$port["state"]."\r<u>".$port["name"]."</u></li>";
+          if (intval($port["port"]) === 80) {
+            echo '<li>HTTP Code: '.$httpcode.'</li>';
+            echo '<li><a href="'.$url.'">Accéder au site</a></li>';
+          }
+	}
+        if ($httpcode === 999) {
+          echo '<li>HTTP Code: ???</li>';
+          echo '<li>Aucun site web configuré</li>';
+        }
+    echo '	
+        </ul>
+      </section>
+    </div>';
+  }
   return;
+}
+
+function group_on_ip($arr) {
+  $return = array();
+  foreach($arr as $val) {
+      $return[$val["ip"]][] = $val;
+  }
+  return $return;
 }
 
 /* Hosting Functions */
@@ -39,8 +82,11 @@ function icon_up_down($httpcode) {
  if($httpcode == 200 || $httpcode == 302) {
    return "fa-check"; 
  }
- else { 
-  return "fa-times"; 
+ else if ($httpcode == 999) { 
+   return "fa-question"; 
+ }
+ else {
+   return "fa-times"; 
  }
 }
 

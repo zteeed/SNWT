@@ -55,7 +55,7 @@
         <header>
           <h2>Adhérents</h2>
         </header>
-        <?php $arr = get_scan_info('adhérents') ?>
+        <?php $arr = get_scan_info('adhérent') ?>
         <div class="row aln-center">
           <?php display_data_scan($arr) ?>
         </div>
@@ -75,7 +75,7 @@
     </article>
 
     <article id="dev" class="wrapper style2">
-      <div class="container medium">
+      <div class="container">
         <header>
           <h2>Dev</h2>
         </header>
@@ -87,7 +87,7 @@
     </article>
 
     <article id="prod" class="wrapper style2">
-      <div class="container medium">
+      <div class="container">
         <header>
           <h2>Prod</h2>
         </header>
