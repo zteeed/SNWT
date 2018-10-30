@@ -37,7 +37,8 @@ function display_data_scan($arr) {
         <ul>
 	';
         $num = count($host);
-        echo '<li>'.$num.' port(s) ouvert(s)</li>';
+        $js_array = base64_encode(json_encode($host));
+        echo '<li><a href="javascript:show_ports(\''.$js_array.'\')">'.$num.' port(s) ouvert(s)</a></li>';
 	foreach ($host as $port) {
           // echo "<li>Port:".$port["port"]."\r".$port["state"]."\r<u>".$port["name"]."</u></li>";
           if (intval($port["port"]) === 80) {
