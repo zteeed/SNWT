@@ -73,8 +73,9 @@ def create_database(username, db, password):
 def create_tables(username, db, password):
     con = connect(username, db, password)
     metadata = sqlalchemy.MetaData(bind=con, reflect=True)
-    X = [ _t for _t in metadata.tables ].sort()
-    Y = ['catégories', 'plages_ip', 'résultat_scan'].sort()
+    X = [ _t for _t in metadata.tables ]
+    Y = ['catégories', 'plages_ip', 'résultat_scan']
+    X.sort(); Y.sort()
     if X==Y: 
         print('Tables already created, keep going...'); 
         #for _t in metadata.tables: print('Table created: ', _t)
