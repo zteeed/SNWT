@@ -13,33 +13,39 @@ function move() {
   path=$1
   if [[ "$PWD/" =~ "$path" ]]; then
     echo "You already are inside $path"
-    ask_apache2_config
   else 
     rm -rf $path > /dev/null
     sudo mkdir -p $path > /dev/null
     cp -r {*,.git*} $path
     echo
     echo "Installation finished, you can go in $path"
-    ask_apache2_config
   fi
 }
 
-function ask_apache2_config() {
-    read -p "Do you want ton make an automatic apache2 configuration ? (y/N) " -r
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
-      apache2_config
-    else
-      exit 1
-    fi
+function ask_auto_config() {
+  read -p "Do you want ton make an automatic apache2/postgresql configuration ? (y/N) " -r
+  if [[ $REPLY =~ ^[Yy]$ ]]; then 
+    apache2_config
+    postgresql_config
+  fi
+}
+
+function postgresql_config() {
+  file="$(find /etc -name pg_hba.conf)"
+  line="$(cat $file | awk '{print NR-1 ";" $0}' | grep 'local.*all.*postgres' | cut -d';' -f1)"
+  line=$(($line+1))
+  echo "$file --> line=$line"
+  sed -i "$line""s|peer|trust|g" $file
+  sudo /etc/init.d/postgresql restart
 }
 
 function apache2_config() {
   file="/etc/apache2/apache2.conf"
-  line="$(cat $file | awk '{print NR-1 ";" $0}' | awk '/<Directory \/var\/www/{flag=1;next}/<\/Directory/{flag=0}flag' | grep 'AllowOverride None' | cut -d';' -f1)"
-  echo "$line"
+  line="$(cat $file | awk '{print NR-1 ";" $0}' | awk '/<Directory \/var\/www/{flag=1;next}/<\/Directory/{flag=0}flag' | grep -i 'AllowOverride None' | cut -d';' -f1)"
+  #line=$(($line+1))
+  echo "$file --> line=$line"
   sed -i "$line""s|None|All|g" $file
   sudo /etc/init.d/apache2 restart
-  exit 1
 }
 
 function install_debian_stretch() {
@@ -48,10 +54,11 @@ function install_debian_stretch() {
   sudo pip3 install -r requirements.txt
   read -p "Deploy all files with deleting all in $path ? (y/N) " -r
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
-    exit 1
+    echo "OK, keep going ..."
   else
     move $path
   fi
+  ask_auto_config
 }
 
 function main() {
