@@ -9,19 +9,6 @@ function ask_debian() {
   fi
 }
 
-function move() {
-  path=$1
-  if [[ "$PWD/" =~ "$path" ]]; then
-    echo "You already are inside $path"
-  else 
-    rm -rf $path > /dev/null
-    sudo mkdir -p $path > /dev/null
-    cp -r {*,.git*} $path
-    echo
-    echo "Installation finished, you can go in $path"
-  fi
-}
-
 function ask_auto_config() {
   read -p "Do you want ton make an automatic apache2/postgresql configuration ? (y/N) " -r
   if [[ $REPLY =~ ^[Yy]$ ]]; then 
@@ -52,12 +39,6 @@ function install_debian_stretch() {
   path="/var/www/html/"
   sudo apt install apache2 php postgresql php-pgsql python3 python3-pip
   sudo pip3 install -r requirements.txt
-  read -p "Deploy all files with deleting all in $path ? (y/N) " -r
-  if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
-    echo "OK, keep going ..."
-  else
-    move $path
-  fi
   ask_auto_config
 }
 
