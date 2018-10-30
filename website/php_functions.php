@@ -2,7 +2,7 @@
 
 /* Adhérents Functions */
 
-function get_adh_info() {
+function get_scan_info($table) {
   include('database/database_conn_localhost.php');
   $query = "SELECT c.id as catégorie_id, p.id as plages_ip_id, 
                    r.id as résultat_scan_id, c.name as catégorie, 
@@ -10,6 +10,7 @@ function get_adh_info() {
                    FROM résultat_scan AS r 
                      JOIN plages_ip as p ON p.id=r.id_plages_ip 
                      JOIN catégories AS c ON c.id=p.id_catégories 
+            WHERE c.name='".$table."'
             ORDER BY r.id;";
   $result = pg_query($conn, $query);
   $arr = pg_fetch_all($result);
@@ -17,7 +18,7 @@ function get_adh_info() {
   return $arr;
 }
 
-function display_data_adh($arr) {
+function display_data_scan($arr) {
   return;
 }
 

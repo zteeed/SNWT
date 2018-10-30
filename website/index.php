@@ -55,9 +55,9 @@
         <header>
           <h2>Adhérents</h2>
         </header>
-        <?php $arr = get_adh_info() ?>
+        <?php $arr = get_scan_info('adhérents') ?>
         <div class="row aln-center">
-          <?php display_data_adh($arr) ?>
+          <?php display_data_scan($arr) ?>
         </div>
       </div>
     </article>
