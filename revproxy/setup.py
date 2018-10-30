@@ -116,7 +116,8 @@ def push_data_from_revproxy(username, db, password):
                 catégorie = L_catégorie[L_catégorie_ip.index(catégorie_ip)]
                 p = '(.*?)http://(.*?)$'
                 try:
-                    m = re.findall(p, line)[0][-1].split(':')[-1][:-2]
+                    m = re.findall(p, line)[0][-1].split(':')[-1]
+                    for char in '/";': m=m.replace(char, '')
                     port = int(m)
                 except Exception as exception:
                     #print(exception)
