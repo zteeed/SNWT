@@ -96,8 +96,8 @@ def create_tables(username, db, password):
 		  Column('description', String))
     table3 = Table('résultat_scan', metadata,
 		  Column('id', Integer, primary_key=True),
-		  #Column('id_plages_ip', Integer, ForeignKey('plages_ip.id'), nullable=False),
-		  Column('id_plages_ip', Integer, nullable=False),
+		  Column('id_plages_ip', Integer, ForeignKey('plages_ip.id'), nullable=False),
+		  #Column('id_plages_ip', Integer, nullable=False),
 		  Column('ip', String),
 		  Column('nmap_csv', String))
     try:
