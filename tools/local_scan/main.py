@@ -1,12 +1,13 @@
 #! /usr/bin/python3
 
+import os
 import setup
 import scan
 
 if __name__ == "__main__":
     ''' Specify custom data '''
     username = 'respoweb'
-    password = 'MXlf55DdYmURrHDlcbnYXKiGg2O'
+    password = os.environ['password_db']
     db = 'nmap'
     filename = 'data.csv'
     ''' Setup config '''
