@@ -7,6 +7,8 @@ from sqlalchemy import Table, Column, Integer, String, ForeignKey
 import sqlalchemy_utils
 import nmap
 import setup
+from socket import inet_aton
+import struct
 
 def update_db(username, db, password, fast=False):
     nm = nmap.PortScanner()
@@ -36,14 +38,15 @@ def update_db_elem(con, elem, args_nmap, nm):
     #con.execute(sql)
 
 def display_result(nm):
-    for host in nm.all_hosts():
+    list_of_ips = nm.all_hosts()
+    list_of_ips = sorted(list_of_ips, key=lambda ip: struct.unpack("!L", inet_aton(ip))[0])
+    for host in list_of_ips:
         print('[*] Host : %s -- ' % (host)) # add name adh6 api
         for proto in nm[host].all_protocols():
             lport = nm[host][proto].keys()
             for port in sorted(lport):
-                print ('\tport : %s\tstate : %s\tname : %s' 
-                       % (port, 
-                          nm[host][proto][port]['state'], 
-                          nm[host][proto][port]['name'] )
-                      )
+                state = nm[host][proto][port]['state']
+                name = nm[host][proto][port]['name']
+                if state=='open': state+='\t'
+                print ('\tport : %s\t\tstate : %s\t\tname : %s' % (port, state, name))
     return

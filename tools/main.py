@@ -16,4 +16,4 @@ if __name__ == "__main__":
     setup.create_tables(username, db, password)
     setup.push_data_from_file(username, db, password, filename)
     ''' Scan push to db '''
-    scan.update_db(username, db, password, fast=False)
+    scan.update_db(username, db, password, fast=True)
