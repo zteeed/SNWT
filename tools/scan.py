@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 
+import time
 import re
 import sys
 import sqlalchemy
@@ -40,11 +41,13 @@ def display_update_result(con, nm, id):
         for proto in nm[host].all_protocols():
             lport = nm[host][proto].keys()
             for port in sorted(lport):
+                #time.sleep(0.2)
                 state = nm[host][proto][port]['state']
                 name = nm[host][proto][port]['name']
                 if state=='open': state+='\t'
                 print ('\tport : %s\t\tstate : %s\t\tname : %s' % (port, state, name))
             for port in sorted(lport):
+                #time.sleep(0.2)
                 state = nm[host][proto][port]['state']
                 name = nm[host][proto][port]['name']
                 push_query(con, nm, id, host, port, state, name) 
