@@ -55,55 +55,9 @@
         <header>
           <h2>Adhérents</h2>
         </header>
+        <?php $arr = get_adh_info(); print_r($arr) ?>
         <div class="row aln-center">
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
-          <div class="col-3 col-4-medium col-6-small">
-            <section class="box style1">
-              <span class="icon featured fa-comments-o"></span>
-              <h3>Example Title</h3>
-              <p>Example text</p>
-              <ul>Example list
-                <li>Example item</li>
-                <li>Example item</li>
-                <li>Example item</li>
-              </ul>
-            </section>
-          </div>
+          <?php display_data_adh($arr) ?>
         </div>
       </div>
     </article>

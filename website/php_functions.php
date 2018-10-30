@@ -2,6 +2,15 @@
 
 /* Adhérents Functions */
 
+function get_adh_info() {
+  include('database_conn_localhost.php');
+  return array();
+}
+
+function display_data_adh($arr) {
+  return;
+}
+
 /* Hosting Functions */
 
 function get_hosting_info() {
