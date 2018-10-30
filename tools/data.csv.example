@@ -1,0 +1,3 @@
+catégorie.name;IP/mask;description
+test1;10.10.10.0/24;commentaire2
+test2;192.100.45.128/26;commentaire2
