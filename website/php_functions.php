@@ -4,7 +4,17 @@
 
 function get_adh_info() {
   include('database/database_conn_localhost.php');
-  return array();
+  $query = "SELECT c.id as catégorie_id, p.id as plages_ip_id, 
+                   r.id as résultat_scan_id, c.name as catégorie, 
+                   p.ip_mask, r.ip, r.port, r.state, r.name 
+                   FROM résultat_scan AS r 
+                     JOIN plages_ip as p ON p.id=r.id_plages_ip 
+                     JOIN catégories AS c ON c.id=p.id_catégories 
+            ORDER BY r.id;";
+  $result = pg_query($conn, $query);
+  $arr = pg_fetch_all($result);
+  pg_close($conn);
+  return $arr;
 }
 
 function display_data_adh($arr) {
