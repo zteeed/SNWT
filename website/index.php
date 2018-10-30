@@ -79,6 +79,10 @@
         <header>
           <h2>Dev</h2>
         </header>
+        <?php $arr = get_scan_info('développement') ?>
+        <div class="row aln-center">
+          <?php display_data_scan($arr) ?>
+        </div>
       </div>
     </article>
 
@@ -87,6 +91,10 @@
         <header>
           <h2>Prod</h2>
         </header>
+        <?php $arr = get_scan_info('production') ?>
+        <div class="row aln-center">
+          <?php display_data_scan($arr) ?>
+        </div>
       </div>
     </article>
   
