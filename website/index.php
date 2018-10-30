@@ -55,7 +55,7 @@
         <header>
           <h2>Adhérents</h2>
         </header>
-        <?php $arr = get_adh_info(); print_r($arr) ?>
+        <?php $arr = get_adh_info() ?>
         <div class="row aln-center">
           <?php display_data_adh($arr) ?>
         </div>
