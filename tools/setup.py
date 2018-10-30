@@ -122,12 +122,20 @@ def push_categories(con, data):
         print(sql); con.execute(sql)
     return
 
+def push_plages_ip(con, data):
+    plages=set([line.split(';')[1] for line in data])
+    print(plages)
+    print(plages)
+    print(plages)
+    return
+
 def push_data_from_file(username, db, password, filename):
     con = connect(username, db, password)
     metadata = sqlalchemy.MetaData(bind=con, reflect=True)
     '''get data from file'''
     data = get_data_from_file(filename)
-    '''push data in first table'''
+    '''push data in tables'''
     push_categories(con, data)
+    push_plages_ip(con, data)
     return
 
