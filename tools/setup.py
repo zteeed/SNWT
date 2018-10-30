@@ -78,15 +78,21 @@ def create_tables(username, db, password):
     X.sort(); Y.sort()
     if X==Y: 
         print('Tables already created, keep going...'); 
-        #for _t in metadata.tables: print('Table created: ', _t)
         return
+    else:
+        sql='DROP SCHEMA public CASCADE;'
+        con.execute(sql)
+        sql='CREATE SCHEMA public;'
+        con.execute(sql)
+        metadata = sqlalchemy.MetaData(bind=con, reflect=True)
     table1 = Table('catégories', metadata, 
 		  Column('id', Integer, primary_key=True),
 		  Column('name', String))
     table2 = Table('plages_ip', metadata,
 		  Column('id', Integer, primary_key=True),
 		  Column('id_catégories', Integer, ForeignKey('catégories.id'), nullable=False),
-		  Column('IP/mask', String))
+		  Column('IP/mask', String),
+		  Column('description', String))
     table3 = Table('résultat_scan', metadata,
 		  Column('id', Integer, primary_key=True),
 		  Column('id_plages_ip', Integer, ForeignKey('plages_ip.id'), nullable=False),
