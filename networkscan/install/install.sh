@@ -37,8 +37,14 @@ function apache2_config() {
 
 function install_debian_stretch() {
   path="/var/www/html/"
-  sudo apt install apache2 php postgresql php-pgsql python3 python3-pip
+  sudo apt install git curl apache2 php postgresql php-pgsql python3 python3-pip
   sudo pip3 install -r requirements.txt
+  git clone https://github.com/sweetalert2/sweetalert2.git
+  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  cd ../../website/
+  npm install --save sweetalert2
+  mv sweetalert2 ../../website/
   ask_auto_config
 }
 
@@ -47,8 +53,6 @@ function main() {
   echo "----- Automatic Installation of the Environment -----"
   echo "-----------------------------------------------------"
   echo
-  git clone https://github.com/sweetalert2/sweetalert2.git
-  mv sweetalert2 ../../website/
   if lsb_release -a | grep -i "debian" > /dev/null; then
     if lsb_release -a | grep -i "stretch" > /dev/null; then
       echo "Debian stretch detected... OK!"; echo
