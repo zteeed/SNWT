@@ -45,7 +45,7 @@ Schéma de la base de donnée:
 ### postgresql
 
 Configuration manuelle:
-- Pour vous faciliter la tâche vous disposez d'un fichier `export.sql` dans le dossier `install/data` afin de réatblir la base de donnée vierge en cas de problème, même si les scripts python gèrent la reconstruction de la base de donnée.
+- Pour vous faciliter la tâche vous disposez d'un fichier `export.sql` dans le dossier `install/data` afin de rétablir la base de données vierge en cas de problème, même si les scripts python gèrent la reconstruction de la base de données.
 - `sudo -u postgres psql`
 ```sql
 CREATE ROLE respoweb WITH LOGIN;
@@ -67,5 +67,5 @@ VACUUM FREEZE;
 
 ### fonctionnalités à prévoir
 
-- Récupérer via l'API ADH6 les données adhérents en fonction de l'IP
-- Récupérer le noms des subdirectory du server web pour indexer les pages cachées
+- Récupérer via l'API ADH6 les données adhérents en fonction de l'IP.
+- Récupérer le noms des subdirectory du server web pour indexer les pages cachées.
