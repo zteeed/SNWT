@@ -81,7 +81,9 @@
         <header>
           <h2>Dev Revproxy</h2>
         </header>
+        <?php $arr = get_revproxy_info('developpement') ?>
         <div class="row aln-center">
+          <?php display_data_revproxy($arr) ?>
         </div>
       </div>
     </article>
@@ -103,7 +105,9 @@
         <header>
           <h2>Prod Revproxy</h2>
         </header>
+        <?php $arr = get_revproxy_info('production') ?>
         <div class="row aln-center">
+          <?php display_data_revproxy($arr) ?>
         </div>
       </div>
     </article>
