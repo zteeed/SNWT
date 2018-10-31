@@ -1,2 +1,6 @@
 database/database_conn_hosting.php
+database/database_conn_revproxy.php
 database/database_conn_localhost.php
+node_modules/
+package-lock.json
+sweetalert2/
