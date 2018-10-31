@@ -18,6 +18,12 @@ bash networkscan/install/install.sh
 Configuration manuelle:
 - Éditer /etc/apache2/apache2.conf et modifier `AllowOverride None` en `AllowOverride All` en dessous de `<Directory /var/www>` pour permettre aux fichiers `.htaccess` d'être éxécuté.
 - Éditer pg_hba.conf (`find /etc -name pg_hba.conf`) et remplacer `local  all postgres  peer` en `local  all postgres  trust`
+- Éditer le fichier `networkscan/data.csv` à partir du template `networscan/data.csv.example` pour permettre au script `networkscan/main.py` d'explorer les sous réseaux indiqués:
+```csv
+catégorie.name;IP/mask;description
+test1;10.10.10.0/24;commentaire2
+test2;192.100.45.128/26;commentaire2
+```
 - Éditer la crontab: `30 4 * * * cd /var/www/html/networkscan; python3 main.py`
 
 Schéma de la base de donnée:
@@ -32,12 +38,6 @@ bash revproxy/install/install.sh
 Configuration manuelle:
 - Éditer pg_hba.conf (`find /etc -name pg_hba.conf`) pour permettre la connection en remote: `host  all  all  A.B.C.D/E  md5` où A.B.C.D/E correspond à un sous réseau.
 - Éditer postgresql.conf (`find /etc -name postgresql.conf`) pour permettre la connexion en remote: `listen_addresses = '*'`
-- Éditer le fichier `networkscan/data.csv` à partir du template `networscan/data.csv.example` pour permettre au script `networkscan/main.py` d'explorer les sous réseaux indiqués:
-```csv
-catégorie.name;IP/mask;description
-test1;10.10.10.0/24;commentaire2
-test2;192.100.45.128/26;commentaire2
-```
 - Éditer la crontab: `30 * * * * cd /root/SNWT/revproxy; python3 main.py`
 
 Schéma de la base de donnée:
