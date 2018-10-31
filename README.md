@@ -12,7 +12,7 @@ mv SNWT/* /var/www/html
 ### networkscan
 
 ```bash
-bash install/install.sh
+bash networkscan/install/install.sh
 ```
 
 Configuration manuelle:
@@ -20,16 +20,21 @@ Configuration manuelle:
 - Éditer pg_hba.conf (`find /etc -name pg_hba.conf`) et remplacer `local  all postgres  peer` en `local  all postgres  trust`
 - Éditer la crontab: `30 4 * * * cd /var/www/html/networkscan; python3 main.py`
 
+Schéma de la base de donnée:
+
+
 ### revproxy
 
 ```bash
-bash install/install.sh
+bash revproxy/install/install.sh
 ```
 
 Configuration manuelle:
 - Éditer pg_hba.conf (`find /etc -name pg_hba.conf`) pour permettre la connection en remote: `host  all  all  A.B.C.D/E  md5` où A.B.C.D/E correspond à un sous réseau.
 - Éditer postgresql.conf (`find /etc -name postgresql.conf`) pour permettre la connexion en remote: `listen_addresses = '*'`
 - Éditer la crontab: `30 * * * * cd /root/SNWT/revproxy; python3 main.py`
+
+Schéma de la base de donnée:
 
 ### postgresql
 
