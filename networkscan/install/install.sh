@@ -44,6 +44,7 @@ function install_debian_stretch() {
   sudo apt-get install -y nodejs
   cd ../../website/
   npm install --save sweetalert2
+  cd -
   mv sweetalert2 ../../website/
   ask_auto_config
 }
