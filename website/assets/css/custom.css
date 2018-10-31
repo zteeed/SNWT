@@ -35,3 +35,7 @@ span.image.fit img {
   /* padding: 3em 2em 3.5em 2em; */
   padding: 1em 1em 1em 1em; 
 }
+
+h3 {
+  word-break: break-all;
+}
