@@ -26,8 +26,9 @@ test2;192.100.45.128/26;commentaire2
 ```
 - Éditer la crontab: `30 4 * * * cd /var/www/html/networkscan; python3 main.py`
 
-Schéma de la base de donnée:
+Schéma de la base de données:
 
+![](https://github.com/zteeed/SNWT/blob/master/schemas/networkscan.png)
 
 ### revproxy
 
@@ -39,8 +40,6 @@ Configuration manuelle:
 - Éditer pg_hba.conf (`find /etc -name pg_hba.conf`) pour permettre la connection en remote: `host  all  all  A.B.C.D/E  md5` où A.B.C.D/E correspond à un sous réseau.
 - Éditer postgresql.conf (`find /etc -name postgresql.conf`) pour permettre la connexion en remote: `listen_addresses = '*'`
 - Éditer la crontab: `30 * * * * cd /root/SNWT/revproxy; python3 main.py`
-
-Schéma de la base de donnée:
 
 ### postgresql
 
