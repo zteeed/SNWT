@@ -64,7 +64,3 @@ UPDATE pg_database SET datistemplate = TRUE WHERE datname = 'template1';
 VACUUM FREEZE;
 ```
 
-### fonctionnalités à prévoir
-
-- Récupérer via l'API ADH6 les données adhérents en fonction de l'IP.
-- Récupérer le noms des subdirectory du server web pour indexer les pages cachées.
